@@ -9,15 +9,19 @@ function playGame(){
   
 // for loop to repeat the game for 5 rounds
     for (let i = 0; i < 5; i++){
-        let computerChoice = getComputerChoice()
-        let humanChoice = getHumanChoice()
-        playRound(computerChoice, humanChoice)
+        let computerChoice = getComputerChoice();
+        let humanChoice = getHumanChoice();
+        playRound(computerChoice, humanChoice);
     }
 }
 
 
 // create getComputerChoice and store it in computerChoice, if 1 = rock, if else 2 = paper, else if 3 = scissors, 
-
+function getComputerChoice(){
+    let choices = ["rock", "paper", "scissors"]
+    let computerNumber = Math.floor(Math.random() * 3);
+    return choices[computerNumber;
+}
 
 // create getHumanChoice and store it in humanChoice, case insensitive and strip the blank, loop intil the user enters a valid input, return user input
 
