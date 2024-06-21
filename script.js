@@ -11,6 +11,12 @@ function playGame(){
     for (let i = 0; i < 5; i++){
         let computerChoice = getComputerChoice();
         let humanChoice = getHumanChoice();
+
+        if (humanChoice === null){
+            console.log("Human cancel the game");
+            return;
+        }
+
         let winner = playRound(computerChoice, humanChoice);
 
         // if winner equal t
@@ -18,7 +24,15 @@ function playGame(){
             scoreHuman++;
         } else if (winner === "computer") {
             scoreComputer++;
-        } 
+        }
+    }
+
+    if (scoreComputer > scoreHuman){
+        console.log("Computer wins the game!")
+    } else if (scoreHuman > scoreComputer){
+        console.log("Human wins the game!")
+    } else {
+        console.log("It is a tie!")
     }
 }
 
@@ -36,8 +50,9 @@ function getHumanChoice(){
     let isCorrect = false;
     while (!(isCorrect)){
         humanChoice = prompt("What´s your option?");
-        humanChoice = humanChoice.toLowerCase()
-        humanChoice = humanChoice.trim()
+        if (humanChoice === null) return null;
+        humanChoice = humanChoice.toLowerCase();
+        humanChoice = humanChoice.trim();
         switch (humanChoice){
             case "rock":
                 isCorrect = true;
@@ -49,6 +64,7 @@ function getHumanChoice(){
                 isCorrect = true;
                 break;
             default:
+                console.log("Invalid option");
                 isCorrect = false;
         }
     }
@@ -66,11 +82,11 @@ function playRound(computer, human){
     // if options[humnaChoice] === computerChoice:
     if (choiceLosers[computer] === human){
          // human wins 
-        console.log(`You win! ${human} beats ${computer}`)
+        console.log(`You win! ${human} beats ${computer}`);
         return "human";    
     } else if (choiceLosers[human] === computer){   //  else if options[computerChoice] === humanChoice
         //  computer wins 
-        console.log(`You lose! ${computer} beats ${human}`)
+        console.log(`You lose! ${computer} beats ${human}`);
         return "computer";
     } else {
         console.log("It is a tie!")
