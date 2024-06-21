@@ -6,7 +6,7 @@
 function playGame(){
     let scoreHuman = 0;
     let scoreComputer = 0; 
-  
+    let choices = ["rock", "paper", "scissors"]
 // for loop to repeat the game for 5 rounds
     for (let i = 0; i < 5; i++){
         let computerChoice = getComputerChoice();
@@ -18,13 +18,18 @@ function playGame(){
 
 // create getComputerChoice and store it in computerChoice, if 1 = rock, if else 2 = paper, else if 3 = scissors, 
 function getComputerChoice(){
-    let choices = ["rock", "paper", "scissors"]
     let computerNumber = Math.floor(Math.random() * 3);
-    return choices[computerNumber;
+    return choices[computerNumber];
 }
 
 // create getHumanChoice and store it in humanChoice, case insensitive and strip the blank, loop intil the user enters a valid input, return user input
+function getHumanChoice(){
+    while (){
 
+    }
+    let humanChoice = prompt("What´s your option?");
+
+}
 // create playRound that takes human and computer choices and  compare their options 
 // create a dict name options with option: the option  that defeats that option
 // if options[humnaChoice] === computerChoice:
