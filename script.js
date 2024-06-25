@@ -7,32 +7,22 @@ function playGame(){
     let scoreHuman = 0;
     let scoreComputer = 0; 
   
-// for loop to repeat the game for 5 rounds
-    for (let i = 0; i < 5; i++){
-        let computerChoice = getComputerChoice();
-        let humanChoice = getHumanChoice();
-
-        if (humanChoice === null){
-            console.log("Human cancel the game");
-            return;
-        }
-
-        let winner = playRound(computerChoice, humanChoice);
-
-        // if winner equal t
-        if (winner === "human") {
-            scoreHuman++;
-        } else if (winner === "computer") {
-            scoreComputer++;
-        }
+    let winner = playRound(computerChoice, humanChoice);
+   
+    if (winner === "human") {
+        scoreHuman++;
+    } else if (winner === "computer") {
+        scoreComputer++;
     }
 
-    if (scoreComputer > scoreHuman){
-        console.log("Computer wins the game!")
-    } else if (scoreHuman > scoreComputer){
-        console.log("Human wins the game!")
-    } else {
-        console.log("It is a tie!")
+    if (scoreComputer === 5 || scoreHuman === 5){
+        if (scoreComputer > scoreHuman){
+            console.log("Computer wins the game!")
+        } else if (scoreHuman > scoreComputer){
+            console.log("Human wins the game!")
+        } else {
+            console.log("It is a tie!")
+        }
     }
 }
 
@@ -46,28 +36,25 @@ function getComputerChoice(){
 
 // create getHumanChoice and store it in humanChoice, case insensitive and strip the blank, loop intil the user enters a valid input, return user input
 function getHumanChoice(){
+    let options = document.querySelector(".options");
     let humanChoice;
-    let isCorrect = false;
-    while (!(isCorrect)){
-        humanChoice = prompt("What´s your option?");
-        if (humanChoice === null) return null;
-        humanChoice = humanChoice.toLowerCase();
-        humanChoice = humanChoice.trim();
-        switch (humanChoice){
+    options.addEventListener("click", (e) => {
+        let targetClass = e.target.classList;
+        switch (targetClass){
             case "rock":
-                isCorrect = true;
+                humanChoice = "rock";
                 break;
             case "paper":
-                isCorrect = true;
-                break
+                humanChoice = "paper";
+                break;
             case "scissors":
-                isCorrect = true;
+                humanChoice = "scissors";
                 break;
             default:
-                console.log("Invalid option");
-                isCorrect = false;
+                humanChoice = "rock";
+                break;
         }
-    }
+    });
     return humanChoice;
 }
 
