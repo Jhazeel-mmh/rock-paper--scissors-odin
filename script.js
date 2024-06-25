@@ -36,6 +36,7 @@ let winner = options.addEventListener("click", (event) => {
         } else {
             gameResult.textContent = "It is a tie!";
         }
+        gameResult.textContent = "";
         scoreComputer = 0;
         scoreHuman = 0;
     }
