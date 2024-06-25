@@ -14,8 +14,6 @@ let options = document.querySelector(".options")
 let displayScoreHuman = document.querySelector(".score-human");
 let displayScoreComputer = document.querySelector(".score-computer");
 
-displayScoreComputer.textContent = `Score Computer: ${scoreComputer}`;
-displayScoreHuman.textContent = `Score Human: ${scoreHuman}`;
 
 let winner = options.addEventListener("click", (event) => {
 
@@ -26,7 +24,10 @@ let winner = options.addEventListener("click", (event) => {
     } else if (winner === "computer") {
         scoreComputer++;
     }
-    
+
+    displayScoreComputer.textContent = `Score Computer: ${scoreComputer}`;
+    displayScoreHuman.textContent = `Score Human: ${scoreHuman}`;
+
     if (scoreComputer === 5 || scoreHuman === 5){
         if (scoreComputer > scoreHuman){
             gameResult.textContent = "Computer wins the game!";
