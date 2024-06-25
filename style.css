@@ -31,7 +31,7 @@ h1 {
 }
 
 
-.options button, .play-round {
+.options button {
     background-color: rgb(72, 122, 238);
     color: #fff;
     font-size: 15px;
