@@ -6,6 +6,7 @@
 function playGame(){
     let scoreHuman = 0;
     let scoreComputer = 0; 
+    let gameResult = document.querySelector(".game-result")
   
     let winner = playRound();
    
@@ -17,12 +18,14 @@ function playGame(){
 
     if (scoreComputer === 5 || scoreHuman === 5){
         if (scoreComputer > scoreHuman){
-            console.log("Computer wins the game!")
+            gameResult.textContent = "Computer wins the game!";
         } else if (scoreHuman > scoreComputer){
-            console.log("Human wins the game!")
+            gameResult.textContent = "Human wins the game!";
         } else {
-            console.log("It is a tie!")
+            gameResult.textContent = "It is a tie!";
         }
+        scoreComputer = 0;
+        scoreHuman = 0;
     }
 }
 
