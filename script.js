@@ -3,19 +3,24 @@
 
 // optons == minus
 //create scoreHumnan and scoreComputer
-function playGame(){
-    let scoreHuman = 0;
-    let scoreComputer = 0; 
-    let gameResult = document.querySelector(".game-result")
-  
-    let winner = playRound();
-   
+
+
+let scoreHuman = 0;
+let scoreComputer = 0; 
+let gameResult = document.querySelector(".game-result")
+let options = document.querySelector(".options") 
+
+
+let winner = options.addEventListener("click", function (event) {
+
+    let winner = playRound(event);
+
     if (winner === "human") {
         scoreHuman++;
     } else if (winner === "computer") {
         scoreComputer++;
     }
-
+    
     if (scoreComputer === 5 || scoreHuman === 5){
         if (scoreComputer > scoreHuman){
             gameResult.textContent = "Computer wins the game!";
@@ -27,7 +32,9 @@ function playGame(){
         scoreComputer = 0;
         scoreHuman = 0;
     }
-}
+});
+
+
 
 
 // create getComputerChoice and store it in computerChoice, if 1 = rock, if else 2 = paper, else if 3 = scissors, 
@@ -38,33 +45,30 @@ function getComputerChoice(){
 }
 
 // create getHumanChoice and store it in humanChoice, case insensitive and strip the blank, loop intil the user enters a valid input, return user input
-function getHumanChoice(){
-    let options = document.querySelector(".options");
+function getHumanChoice(evento){
     let humanChoice;
-    options.addEventListener("click", (e) => {
-        let targetClass = e.target.classList;
-        switch (targetClass){
-            case "rock":
-                humanChoice = "rock";
-                break;
-            case "paper":
-                humanChoice = "paper";
-                break;
-            case "scissors":
-                humanChoice = "scissors";
-                break;
-            default:
-                humanChoice = "rock";
-                break;
-        }
-    });
+    let targetClass = evento.target.className;
+    switch (targetClass){
+        case "rock":
+            humanChoice = "rock";
+            break;
+        case "paper":
+            humanChoice = "paper";
+            break;
+        case "scissors":
+            humanChoice = "scissors";
+            break;
+        default:
+            humanChoice = "rock";
+            break;
+    }
     return humanChoice;
 }
 
 // create playRound that takes human and computer choices and  compare their options 
-function playRound(){
+function playRound(e){
     let computer = getComputerChoice();
-    let human = getHumanChoice();
+    let human = getHumanChoice(e);
     
     // create a dict name options with option: the option  that defeats that option
     let choiceLosers = {
@@ -72,6 +76,7 @@ function playRound(){
         "paper": "scissors",
         "scissors": "rock"
     }
+
     let displayResult = document.querySelector(".round-result");
 
     // if options[humnaChoice] === computerChoice:
