@@ -7,11 +7,17 @@
 
 let scoreHuman = 0;
 let scoreComputer = 0; 
+
 let gameResult = document.querySelector(".game-result")
 let options = document.querySelector(".options") 
+   
+let displayScoreHuman = document.querySelector(".score-human");
+let displayScoreComputer = document.querySelector(".score-computer");
 
+displayScoreComputer.textContent = `Score Computer: ${scoreComputer}`;
+displayScoreHuman.textContent = `Score Human: ${scoreHuman}`;
 
-let winner = options.addEventListener("click", function (event) {
+let winner = options.addEventListener("click", (event) => {
 
     let winner = playRound(event);
 
