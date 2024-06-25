@@ -46,6 +46,11 @@ h1 {
     font-size: 15px;
 }
 
+.game-result {
+    font-size: 20px;
+    font-weight: 800;
+}
+
 .footer {
     margin-top: auto;
     padding: 15px;

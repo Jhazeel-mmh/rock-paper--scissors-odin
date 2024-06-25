@@ -7,7 +7,7 @@ function playGame(){
     let scoreHuman = 0;
     let scoreComputer = 0; 
   
-    let winner = playRound(computerChoice, humanChoice);
+    let winner = playRound();
    
     if (winner === "human") {
         scoreHuman++;
@@ -59,24 +59,29 @@ function getHumanChoice(){
 }
 
 // create playRound that takes human and computer choices and  compare their options 
-function playRound(computer, human){
+function playRound(){
+    let computer = getComputerChoice();
+    let human = getHumanChoice();
+    
     // create a dict name options with option: the option  that defeats that option
     let choiceLosers = {
         "rock": "paper",
         "paper": "scissors",
         "scissors": "rock"
     }
+    let displayResult = document.querySelector(".round-result");
+
     // if options[humnaChoice] === computerChoice:
     if (choiceLosers[computer] === human){
          // human wins 
-        console.log(`You win! ${human} beats ${computer}`);
+        displayResult.textContent = `You win! ${human} beats ${computer}`;
         return "human";    
     } else if (choiceLosers[human] === computer){   //  else if options[computerChoice] === humanChoice
         //  computer wins 
-        console.log(`You lose! ${computer} beats ${human}`);
+        displayResult.textContent  = `You lose! ${computer} beats ${human}`;
         return "computer";
     } else {
-        console.log("It is a tie!")
+        displayResult.textContent = "It is a tie!";
         return "tie";
     }    //  else is a tie
 }
