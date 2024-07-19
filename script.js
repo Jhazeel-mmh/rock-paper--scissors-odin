@@ -25,8 +25,8 @@ let winner = options.addEventListener("click", (event) => {
         scoreComputer++;
     }
 
-    displayScoreComputer.textContent = `Score Computer: ${scoreComputer}`;
-    displayScoreHuman.textContent = `Score Human: ${scoreHuman}`;
+    displayScoreComputer.textContent = `Computer: ${scoreComputer}`;
+    displayScoreHuman.textContent = `Human: ${scoreHuman}`;
 
     if (scoreComputer === 5 || scoreHuman === 5){
         if (scoreComputer > scoreHuman){
