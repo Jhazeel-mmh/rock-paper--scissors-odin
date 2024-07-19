@@ -8,6 +8,11 @@
 let scoreHuman = 0;
 let scoreComputer = 0; 
 
+let backgroundColorBody = document.querySelector("body");
+let winColor = "#35c035";
+let loseColor ="#db2d2d";
+
+let displayResult = document.querySelector(".round-result");
 let gameResult = document.querySelector(".game-result")
 let options = document.querySelector(".options") 
    
@@ -31,10 +36,13 @@ let winner = options.addEventListener("click", (event) => {
     if (scoreComputer === 5 || scoreHuman === 5){
         if (scoreComputer > scoreHuman){
             gameResult.textContent = "Computer wins the game!";
+            backgroundColorBody.style.backgroundColor = loseColor;
         } else if (scoreHuman > scoreComputer){
             gameResult.textContent = "Human wins the game!";
+            backgroundColorBody.style.backgroundColor = winColor;
         } else {
             gameResult.textContent = "It is a tie!";
+            backgroundColorBody.style.backgroundColor = "";
         }
         scoreComputer = 0;
         scoreHuman = 0;
@@ -84,19 +92,21 @@ function playRound(e){
         "scissors": "rock"
     }
 
-    let displayResult = document.querySelector(".round-result");
 
     // if options[humnaChoice] === computerChoice:
     if (choiceLosers[computer] === human){
          // human wins 
         displayResult.textContent = `You win! ${human} beats ${computer}`;
+        displayResult.style.backgroundColor = winColor;
         return "human";    
     } else if (choiceLosers[human] === computer){   //  else if options[computerChoice] === humanChoice
         //  computer wins 
         displayResult.textContent  = `You lose! ${computer} beats ${human}`;
+        displayResult.style.backgroundColor = loseColor;
         return "computer";
     } else {
         displayResult.textContent = "It is a tie!";
+        displayResult.style.backgroundColor = "";
         return "tie";
     }    //  else is a tie
 }

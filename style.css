@@ -19,7 +19,7 @@ body {
 
 .game-view {
     width: 30vw;
-    height: 30vh;
+    height: 40vh;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -73,13 +73,24 @@ body {
 
 
 .result {
-    padding: 15px;
     text-align: center;
     font-size: 15px;
 }
 
+.game-result, .round-result {
+    height: 30px;
+    width: 200px;
+    padding: 10px;
+}
+
+.round-result {
+    border: 2px #aec6d4 solid;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
 .game-result {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 800;
 }
 
