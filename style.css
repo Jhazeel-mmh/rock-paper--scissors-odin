@@ -1,3 +1,8 @@
+:root {
+
+}
+
+
 body {
     height: 100vh;
     padding: 0;
@@ -22,6 +27,7 @@ body {
     border: 5px #aec6d4 solid;
     border-radius: 30px;
     justify-content: space-between;
+    align-items: center;
 }
 
 .scores-container {
@@ -43,20 +49,28 @@ body {
 }
 
 .options {
+    width: 60%;
     display: flex;
-    gap: 15px;
+    gap: 10px;
     justify-content: space-between;
 }
 
-
 .options button {
-    background-color: rgb(72, 122, 238);
-    color: #fff;
-    font-size: 15px;
-    padding: 15px;
-    border: #fff 2px inset;
-    border-radius: 15px;
+    background-color: #517d8f4f;
+    border: 2px rgba(31, 61, 61, 0.63) inset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
 }
+
+.options img {
+    width: 30px;
+    height: 30px;
+}
+
 
 .result {
     padding: 15px;
@@ -72,6 +86,16 @@ body {
 .header, .footer {
     background-color: #d1e8ee;
     width: 100vw;
-    height: 10vh;
+    height: 12vh;
     text-align: center;
 }
+
+.footer > h1 {
+    margin-bottom: -10px;
+}
+
+a {
+    text-decoration: none;
+    color: #ffa;
+}
+
